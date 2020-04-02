@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arduino led strip audio visualizer", "Arduino led strip audio visualizer\Arduino led strip audio visualizer.csproj", "{82036C4C-6228-4D42-8375-563816C5DDCC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82036C4C-6228-4D42-8375-563816C5DDCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82036C4C-6228-4D42-8375-563816C5DDCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82036C4C-6228-4D42-8375-563816C5DDCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82036C4C-6228-4D42-8375-563816C5DDCC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D0CAD27-2FEB-4D97-8890-A483E6532925}
+	EndGlobalSection
+EndGlobal
