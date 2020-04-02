@@ -12,36 +12,50 @@ using System.Windows.Forms;
 
 namespace Arduino_led_strip_audio_visualizer
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private SerialPort port;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            rtbLog.Text += e.ToString() + "\n";
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
         {
             MMDeviceEnumerator enumerator = new MMDeviceEnumerator();
             var devices = enumerator.EnumerateAudioEndPoints(DataFlow.All, DeviceState.Active);
 
             cbDevices.Items.AddRange(devices.ToArray());
 
-            port = new SerialPort("COM5", 9600);
-            port.Open();
+            cbPort.Items.AddRange(SerialPort.GetPortNames());
+
+
 
             timer.Start();
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            if (cbDevices.SelectedItem != null && port != null)
+            if (cbDevices.SelectedItem != null)
             {
                 var device = (MMDevice)cbDevices.SelectedItem;
                 pbMeter.Value = (int)(device.AudioMeterInformation.MasterPeakValue * 100);
 
-                port.WriteLine((pbMeter.Value-10).ToString());
+                if (port != null && port.IsOpen)
+                    port.WriteLine((pbMeter.Value - 10).ToString());
             }
+        }
+
+        private void cbPort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            port = new SerialPort(cbPort.SelectedItem.ToString(), 9600);
+            port.Open();
         }
     }
 }
