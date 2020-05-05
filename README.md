@@ -1,5 +1,5 @@
 # Arduino-led-strip-audio-visualizer
-How to assembly (https://github.com/adafruit/Adafruit_NeoPixel) 
+How to assembly (https://coeleveld.com/arduino-ws2801-ws2811-and-ws2812/) 
 
 Arduino Library (https://github.com/adafruit/Adafruit_NeoPixel) 
 
